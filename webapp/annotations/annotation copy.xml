@@ -1,0 +1,119 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZA_OV50_RECRUTAMENTO_CDS/$metadata">
+        <edmx:Include Namespace="ZA_OV50_RECRUTAMENTO_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="SAP.ZA_OV50_RECRUTAMENTOType">
+                <Annotation Term="UI.Chart" Qualifier="CandidatoVagaChartQualifier">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Candidato por Vaga"/>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="qtd"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="descr"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
+                        <PropertyValue Property="Description" String="Candidato por Vaga"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="CandidatoVagaDataPointQualifier">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="qtd"/>
+                        <PropertyValue Property="Title" String="Candidatos por Vaga"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification" Qualifier="ToRecrutamento">
+                    <Collection>
+                        <Record Type="UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="zobj_devfiori50"/>
+                            <PropertyValue Property="Action" String="display"/>
+                            
+                        </Record>
+                        <Record Type="UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="zobj_devfiori50"/>
+                            <PropertyValue Property="Action" String="display"/>
+                        </Record>
+                        <Record Type="UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value" String="Search"/>
+                            <PropertyValue Property="Url" String="www.google.com.br"/>
+                            <PropertyValue Property="Label" String="google"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Chart" Qualifier="CandidatosRegiaoChartQualifier">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Candidatos por Região"/>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="qtd"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="regiao"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+                        <PropertyValue Property="Description" String="Candidatos por Região"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="CandidatoRegiaoDataPointQualifier">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="qtd"/>
+                        <PropertyValue Property="Title" String="Total Candidato"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Chart" Qualifier="FaixaSalarialChartQualifier">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Volume Salarial por Vaga"/>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="salario"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="descr"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="Description" String="Volume Salarial"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="FaixaSalarialDataPointQualifier">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="salario"/>
+                        <PropertyValue Property="Title" String="Salário"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

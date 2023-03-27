@@ -1,0 +1,161 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "devfiori50.indicadorrecrutamento",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:ovp",
+            "version": "1.9.2",
+            "toolsId": "432be33f-d27d-4155-915e-9b767732f8a7"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZA_OV50_RECRUTAMENTO_CDS/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [
+                        "ZA_OV50_RECRUTAMENTO_CDS_VAN",
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZA_OV50_RECRUTAMENTO_CDS_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZA_OV50_RECRUTAMENTO_CDS_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZA_OV50_RECRUTAMENTO_CDS_VAN.xml"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.112.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.f": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ovp": {},
+                "sap.ui.rta": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "devfiori50.indicadorrecrutamento.i18n.i18n"
+                }
+            },
+            "mainModel": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {},
+            "routes": [],
+            "targets": {}
+        }
+    },
+    "sap.ovp": {
+        "globalFilterModel": "mainModel",
+        "globalFilterEntityType": "ZA_OV50_RECRUTAMENTOType",
+        "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
+        "cards": {
+            "CARD_000": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Candidatos",
+                    "entitySet": "ZA_OV50_RECRUTAMENTO",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#CandidatoVagaDataPointQualifier",
+                    "valueSelectionInfo": "Total de Candidatos",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#CandidatoVagaChartQualifier",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#ToRecrutamento"
+                }
+            },
+            "CARD_001": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Candidatos",
+                    "entitySet": "ZA_OV50_RECRUTAMENTO",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#CandidatoRegiaoDataPointQualifier",
+                    "valueSelectionInfo": "Total de Candidatos",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#CandidatosRegiaoChartQualifier",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#ToRecrutamento"
+                }
+            },
+            "CARD_002": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Volume Salarial BRL",
+                    "entitySet": "ZA_OV50_RECRUTAMENTO",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#FaixaSalarialDataPointQualifier",
+                    "valueSelectionInfo": "Total de Salários",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#FaixaSalarialChartQualifier",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#ToRecrutamento"
+                }
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    }
+}
